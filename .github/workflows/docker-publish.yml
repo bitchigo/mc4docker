@@ -11,6 +11,7 @@ on:
     
 env:
   IMAGE_NAME: bitchigo/mc-server
+  VERSION: 1.18.1
 
 
 jobs:
@@ -64,8 +65,8 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ env.VERSION }}
+          labels: ${{ env.VERSION }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
@@ -78,4 +79,4 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: cosign sign ${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
+        run: cosign sign ${{ env.IMAGE_NAME }}@${{ env.VERSION }}
