@@ -65,9 +65,8 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: 
-          - bitchigo/mc-server:${{ env.VERSION }}
-          - bitchigo/mc-server:last
+          tags: bitchigo/mc-server:${{ env.VERSION }}
+
 
 
       # Sign the resulting Docker image digest except on PRs.
