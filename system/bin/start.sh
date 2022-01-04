@@ -6,5 +6,5 @@ if [ ! -f "server.properties" ];then
   cp ../system/config/server.properties server.properties
 fi
 
-java -jar ../system/bin/server.jar & java -jar ../system/bin/Geyser.jar
+java -jar ../system/bin/server.jar 
 
