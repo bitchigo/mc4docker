@@ -11,7 +11,7 @@ on:
     
 env:
   IMAGE_NAME: bitchigo/mc-server
-  VERSION: 1.19
+  VERSION: 1.19.1
 
 
 jobs:
