@@ -1,4 +1,3 @@
-
 import json
 import urllib.request
 import datetime
@@ -72,11 +71,5 @@ def downloadJarFile(jarUrl):
     print("下载完毕")
 
 
-
-
-
 if __name__ == "__main__":
     main()
-
-
-
