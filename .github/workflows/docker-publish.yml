@@ -37,7 +37,9 @@ jobs:
           password: ${{ secrets.dockerPass }}
       - name: 执行构建脚本
         run: python /home/runner/work/mc4docker/mc4docker/build/run.py
-
+        shell: bash
+        with:
+          python-version: 3.8
 
 
  
