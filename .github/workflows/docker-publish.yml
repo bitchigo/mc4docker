@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: 切换仓库
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 安装docker环境
         uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
@@ -35,9 +35,13 @@ jobs:
         with:
           username: bitchigo
           password: ${{ secrets.dockerPass }}
+      - name: 安装python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
       - name: 执行构建脚本
         run: python /home/runner/work/mc4docker/mc4docker/build/run.py
-        shell: bash
+
 
 
  
