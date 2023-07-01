@@ -3,15 +3,16 @@ import urllib.request
 import datetime
 import os
 
-
+githubActionPath="/home/runner/work/mc4docker/mc4docker/"
+githubActionRunPath=githubActionPath+"build/"
 jarDownLoadUrl="https://bmclapi2.bangbang93.com/version/#version/server"
 jarDownLoadUrlVersionPlaceHolder="#version"
-jarSavePath="../system/bin/server.jar"
+jarSavePath=githubActionRunPath+"../system/bin/server.jar"
 getVersionsUrl="http://launchermeta.mojang.com/mc/game/version_manifest.json"
 
 # 检查是否存在大于上次执行的时间版本 节约资源
 def readLastBuildTime():
-    file= open("./runtime.txt",encoding='utf-8')
+    file= open(githubActionRunPath+"./runtime.txt",encoding='utf-8')
     content=file.read()
     print("上次系统构建时间为:"+ content+"\n")
     file.close()
@@ -55,7 +56,7 @@ def main():
         
 def buildDocker(id):
     print("正在构建docker 版本:"+id+"\n")
-    os.system('docker build -t bitchigo/mc-server:'+id +" ../")
+    os.system('docker build -t bitchigo/mc-server:'+id +" githubActionPath")
     print("构建docker成功 版本:"+id+"\n")
     return 
 

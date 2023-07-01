@@ -35,10 +35,8 @@ jobs:
         with:
           username: bitchigo
           password: ${{ secrets.dockerPass }}
-      - name: 切换工作目录
-        run: cd /home/runner/work/mc4docker/mc4docker/build/
       - name: 执行构建脚本
-        run: python ./build/run.py
+        run: python /home/runner/work/mc4docker/mc4docker/build/run.py
 
 
 
