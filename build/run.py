@@ -56,7 +56,7 @@ def main(args):
             lastVersionTime = time
             lastVersionTimeStr= timeStr
         if lastBuildTime < time:
-            downloadJarFile(downloadUrl,id)
+            downloadJarFile(downloadUrl)
             if id == lastVersion:
                 buildDocker("lastest")
                 pushDocker("lastest")
