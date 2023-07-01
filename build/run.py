@@ -12,8 +12,9 @@ getVersionsUrl="http://launchermeta.mojang.com/mc/game/version_manifest.json"
 # 检查是否存在大于上次执行的时间版本 节约资源
 def readLastBuildTime(timeApi):
     print("正在获取上次更新时间\n")
-    response = urllib.request.urlopen(timeApi+"mcUpdateTime")
-    lastBuildTimeStr=response.read()
+    # response = urllib.request.urlopen(timeApi+"mcUpdateTime")
+    # lastBuildTimeStr=response.read()
+    lastBuildTimeStr = "1999-06-12T13:25:51+00:00"
     print("上次更新时间为:"+lastBuildTimeStr+"\n")
     lastBuildTime = datetime.datetime.strptime(lastBuildTimeStr,"%Y-%m-%dT%H:%M:%S+00:00")
     return lastBuildTime,lastBuildTimeStr
